@@ -259,6 +259,18 @@
   .skill-group-items { font-size: 8.3pt; line-height: 1.5; }
   #resume-ko .skill-group-items { font-size: 8.6pt; line-height: 1.6; }
   .sidebar .entry-org { font-size: 8.3pt; }   #resume-ko .sidebar .entry-org { font-size: 8.6pt; }
+
+  /* KR: break at word boundaries only */
+  #resume-ko .summary, #resume-ko .entry li, #resume-ko .skill-group-items, #resume-ko .entry-org, #resume-ko .entry-meta { word-break: keep-all; overflow-wrap: anywhere; }
+
+  /* redistribute vertical space after shortening bullets */
+  #resume-ko .entry li { line-height: 1.78; margin-bottom: 2.4mm; }
+  #resume-ko .main-col .entry { margin-bottom: 8mm; }
+  #resume-ko .main-col .section { margin-bottom: 10mm; }
+  #resume-ko .summary { margin-bottom: 9mm; }
+  #resume-en .entry li { line-height: 1.72; margin-bottom: 2.2mm; }
+  #resume-en .main-col .entry { margin-bottom: 7.5mm; }
+  #resume-en .main-col .section { margin-bottom: 8.5mm; }
 </style>
 </head>
 <body>
@@ -287,7 +299,7 @@
   </div>
 
   <div class="summary">
-    기계공학 배경의 하드웨어 UX 디자이너, 현재 엑스와이지 로봇 디자인팀 UX 파트 리드. 로봇이 화면·음성·모션·LED로 사람과 만나는 물리 인터랙션과 그 로봇을 운영하는 매장 플랫폼을 함께 설계. 앞서 닷에서 3년간 촉각 디스플레이 Dot Pad와 저작 툴 Dot Canvas(<strong>CES 2024 Innovation Award</strong>) UX 담당.
+    기계공학 배경의 하드웨어 UX 디자이너. 엑스와이지 로봇 디자인팀 UX 파트 리드로 로봇의 HRI와 매장 운영 플랫폼을 설계하며, 앞서 닷에서 3년간 촉각 디스플레이 Dot Pad와 저작 툴 Dot Canvas의 UX를 맡아 <strong>CES 2024 Innovation Award</strong> 수상.
   </div>
 
   <div class="grid">
@@ -301,10 +313,11 @@
           <div class="entry-title">UX 파트 리드, (주)엑스와이지</div>
           <div class="entry-meta">로봇 디자인팀 · 서울, 대한민국 · 2025.08 – 현재</div>
           <ul>
-            <li>바리스타 로봇 카페 BarisBrew의 고객·운영자 UX — 키오스크·앱·LLM 보이스오더와 매장 백오피스를 하나의 시스템으로 설계해 운영 매장에 적용</li>
-            <li>양팔 휴머노이드 DEUX의 HRI — 눈 모션 12종을 비롯해 표정·음성·모션으로 상태를 전달하는 방식과 제어 화면을 설계</li>
-            <li>배송·안내 로봇 Storagy·MIRO와 로봇빌딩솔루션 RBS의 상태 피드백(LED·사운드·표정)·배송 시나리오·관제 웹 화면을 설계</li>
-            <li>UX 파트 운영 — 개발 전달 표준과 디자인 시스템을 관리하고, 디자이너·기획자용 Claude Code 스킬 18종을 공개해 파트 표준 도구로 도입</li>
+            <li>로봇 카페 BarisBrew의 고객·운영자 UX — 키오스크·앱·LLM 음성 주문과 매장 백오피스를 하나의 시스템으로 설계해 운영 매장에 적용</li>
+            <li>세미 휴머노이드 DEUX의 HRI — 눈 모션 12종 등 표정·음성·모션 상태 표현·제어 UI 설계</li>
+            <li>AMR Storagy·MIRO의 상태 피드백(LED·사운드·표정)과 배송·안내 시나리오 설계</li>
+            <li>로봇빌딩솔루션 RBS의 UX — 배송·청소 등 로봇 5종의 통합 운영 시나리오를 정의하고 관제 웹·로비 대시보드 화면을 설계, 현장 설치 후 표시 개선</li>
+            <li>디자인–개발 워크플로 표준화 — 기획서 템플릿, 핸드오프 기준(완료 정의·QA 체크리스트), 릴리스 QA를 정립하고 Claude Code 스킬로 문서화·일감 등록 자동화</li>
           </ul>
         </div>
 
@@ -313,8 +326,8 @@
           <div class="entry-meta">서울, 대한민국 · 2022.07 – 2025.07</div>
           <ul>
             <li>촉각 그래픽 저작 툴 Dot Canvas로 <strong>CES 2024 Innovation Award</strong> 수상 — 특수학교 교사·시각장애 학생용 UX/UI 설계, <strong>CSUN 2024</strong> 출품</li>
-            <li>촉각 디스플레이 Dot Pad의 비시각 조작 UX를 설계해 양산에 적용 — 사용자 리서치를 주도해 PUI·햅틱·LED 피드백 정의</li>
-            <li>점자 디바이스 20종 이상 비교 분석으로 Dot Pad의 촉각 표기 방식을 정하고 차세대 스펙·요구사항 정의</li>
+            <li>촉각 디스플레이 Dot Pad의 촉각 인터페이스(PUI·햅틱·LED 피드백)를 설계해 양산 적용</li>
+            <li>점자 디바이스 20종 이상을 비교 분석해 Dot Pad 촉각 표기 방식과 스펙·요구사항 정의</li>
           </ul>
         </div>
 
@@ -322,7 +335,7 @@
           <div class="entry-title">디자인 엔지니어, ZIBOT Inc.</div>
           <div class="entry-meta">캘리포니아, 미국 · 2018.02 – 2019.01</div>
           <ul>
-            <li>미국 시장용 신규 교육 로봇 컨셉을 CES 2019 부스에 전시 — 미국 본사·중국 디자인팀과 협업해 컨셉 디자인</li>
+            <li>미국 시장용 교육 로봇 컨셉을 CES 2019에 전시 — 미국 본사·중국 디자인팀과 협업</li>
             <li>미국 교육용 로봇 10종 이상을 인터랙션·코딩 교육 난이도 기준으로 분석해 컨셉 방향 도출</li>
           </ul>
         </div>
@@ -357,7 +370,7 @@
         </div>
         <div class="skill-group">
           <div class="skill-group-title">프로토타이핑</div>
-          <div class="skill-group-items">피지컬 프로토타이핑 (Arduino, Raspberry Pi) · 3D 모델링·프린팅 (Fusion 360)</div>
+          <div class="skill-group-items">피지컬(Arduino·Raspberry Pi) · 3D 프린팅(Fusion 360)</div>
         </div>
         <div class="skill-group">
           <div class="skill-group-title">AI · 자동화</div>
@@ -436,7 +449,7 @@
   </div>
 
   <div class="summary">
-    Hardware UX designer with a mechanical engineering background; UX Lead, Robot Design Team at XYZ Inc. Designs the physical interactions where robots meet people — screen, voice, motion, and light — and the store platforms that run them. Previously three years at Dot Inc. on the Dot Pad tactile display and the Dot Canvas authoring tool (<strong>CES 2024 Innovation Award</strong>).
+    Hardware UX designer with a mechanical engineering background. UX Lead in the Robot Design Team at XYZ Inc., designing robot HRI and store operations platforms; previously three years at Dot Inc. on the Dot Pad tactile display and the Dot Canvas authoring tool, winner of a <strong>CES 2024 Innovation Award</strong>.
   </div>
 
   <div class="grid">
@@ -449,10 +462,11 @@
           <div class="entry-title">UX Lead, XYZ Inc.</div>
           <div class="entry-meta">Robot Design Team · Seoul, South Korea · Aug 2025 – Present</div>
           <ul>
-            <li>Owned customer and operator UX for the BarisBrew barista-robot café — kiosk, app, LLM voice ordering, and store back office designed as one system and deployed in live stores</li>
-            <li>Designed HRI for the dual-arm humanoid DEUX — how the robot expresses its state through face (12 eye motions), voice, and motion, and its control screens</li>
-            <li>Designed state feedback (LED, sound, face), delivery scenarios, and console screens for the Storagy and MIRO service robots and the RBS Robot Building Solution</li>
-            <li>Lead the UX team — own the design-to-dev handoff standard and the design system; published 18 Claude Code skills for designers and planners, now the team's standard tools</li>
+            <li>Owned customer and operator UX for the BarisBrew robot café — kiosk, app, LLM voice ordering, and store back office designed as one system and deployed in stores</li>
+            <li>Designed HRI for the semi-humanoid DEUX — state expression through face (12 eye motions), voice, and motion, and its control UI</li>
+            <li>Designed LED/sound/face feedback and delivery scenarios for the Storagy and MIRO AMRs</li>
+            <li>Designed UX for the RBS Robot Building Solution — operating scenarios for 5 robot types, management console and lobby dashboard screens, refined through on-site testing</li>
+            <li>Standardized the design-to-dev workflow — spec templates, handoff criteria (definition of done, QA checklist), release QA; automated docs and ticketing with Claude Code skills</li>
           </ul>
         </div>
 
@@ -461,7 +475,7 @@
           <div class="entry-meta">Seoul, South Korea · Jul 2022 – Jul 2025</div>
           <ul>
             <li>Won the <strong>CES 2024 Innovation Award</strong> with the Dot Canvas tactile-graphics authoring tool — UX/UI for special-education teachers and visually impaired students; shown at <strong>CSUN 2024</strong></li>
-            <li>Made the Dot Pad tactile display usable eyes-free and shipped it to mass production — led hardware UX and user research to design its PUI, haptic, and LED feedback</li>
+            <li>Designed the Dot Pad tactile display's PUI, haptic, and LED feedback; mass-produced</li>
             <li>Set Dot Pad's tactile notation and defined next-generation specs and requirements from a comparative analysis of 20+ braille devices</li>
           </ul>
         </div>
@@ -470,8 +484,8 @@
           <div class="entry-title">Design Engineer, ZIBOT Inc.</div>
           <div class="entry-meta">California, United States · Feb 2018 – Jan 2019</div>
           <ul>
-            <li>Exhibited a new U.S.-market educational robot concept at CES 2019 — developed the concept design with U.S. HQ and the China design team</li>
-            <li>Set the concept direction from an analysis of 10+ U.S. educational robots by interaction and coding-curriculum difficulty</li>
+            <li>Exhibited a U.S.-market educational robot concept at CES 2019 — developed the concept design with U.S. HQ and the China design team</li>
+            <li>Set the concept direction by benchmarking 10+ U.S. educational robots</li>
           </ul>
         </div>
       </div>
@@ -496,7 +510,7 @@
         <h2 class="section-title">Skills</h2>
         <div class="skill-group">
           <div class="skill-group-title">UX Research</div>
-          <div class="skill-group-items">In-depth Interviews · Diary Studies · Field Observation · Usability Testing · Log Analysis</div>
+          <div class="skill-group-items">Interviews · Diary & Field Studies · Usability Testing · Log Analysis</div>
         </div>
         <div class="skill-group">
           <div class="skill-group-title">Design</div>
@@ -543,8 +557,8 @@
       <div class="section">
         <h2 class="section-title">Community</h2>
         <div class="entry">
-          <div class="entry-title">Seolgyejadeul</div>
-          <div class="entry-org">Co-founded a hardware UX community</div>
+          <div class="entry-title">Hardware UX Community</div>
+          <div class="entry-org">Seolgyejadeul · co-founder</div>
           <div class="entry-meta">2024 – 2025</div>
         </div>
         <div class="entry">
