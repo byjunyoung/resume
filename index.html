@@ -24,7 +24,7 @@
   .site-nav {
     display: flex; flex-direction: column; align-items: center; gap: 10px;
     max-width: 1120px; margin: 0 auto; padding: 28px 24px 20px;
-    border-bottom: 1px solid #d6d6d2; line-height: 1.65; color: #161616;
+    border-bottom: 1px solid #d6d6d2; line-height: 1.65; color: #161616; position: relative;
   }
   .site-nav .mark { font-size: 15px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #161616; text-decoration: none; }
   .site-nav nav { display: flex; gap: 20px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b6b; }
@@ -32,7 +32,8 @@
   .site-nav nav a:hover { color: #161616; }
 
   /* Tools — portfolio badge style (11px uppercase, hairline, 2px radius) */
-  .tools { width: 210mm; margin: 24px auto 0; display: flex; justify-content: flex-end; gap: 8px; line-height: 1.65; }
+  .tools { position: absolute; right: 24px; top: 28px; display: flex; gap: 8px; line-height: 1.4; }
+  @media (max-width: 720px) { .tools { top: 20px; right: 12px; } }
   .tools button {
     font-family: inherit; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
     color: #6b6b6b; background: #fff; border: 1px solid #d6d6d2; border-radius: 2px;
@@ -50,7 +51,7 @@
   .resume {
     width: 210mm;
     height: 297mm;
-    margin: 12px auto 24px;
+    margin: 24px auto;
     background: #fff;
     padding: 13mm;
     border: 1px solid #d6d6d2;
@@ -255,7 +256,6 @@
     <a href="https://byjunyoung.github.io/activities/">Activities</a>
     <a href="https://byjunyoung.github.io/resume/" aria-current="page">Resume</a>
   </nav>
-</header>
 <div class="tools no-print">
   <div class="seg" role="group" aria-label="Language">
     <button type="button" id="label-ko" class="active" onclick="setLang('ko')">KR</button>
@@ -263,6 +263,7 @@
   </div>
   <button type="button" class="pdf" onclick="window.print()">PDF 저장</button>
 </div>
+</header>
 
 <!-- ============================ KOREAN ============================ -->
 <div class="resume" id="resume-ko">
@@ -592,8 +593,10 @@
 
   // Restore last selected language
   try {
+    const q = new URLSearchParams(location.search).get('lang');
     const saved = localStorage.getItem('resume-lang');
-    if (saved) setLang(saved);
+    const lang = (q === 'en' || q === 'ko') ? q : saved;
+    if (lang) setLang(lang);
   } catch(e) {}
 </script>
 
