@@ -24,72 +24,33 @@
   .site-nav {
     display: flex; flex-direction: column; align-items: center; gap: 10px;
     max-width: 1120px; margin: 0 auto; padding: 28px 24px 20px;
-    border-bottom: 1px solid #d6d6d2;
+    border-bottom: 1px solid #d6d6d2; line-height: 1.65; color: #161616;
   }
-  .site-nav .mark { font-size: 15px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #1a1a1a; text-decoration: none; }
+  .site-nav .mark { font-size: 15px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #161616; text-decoration: none; }
   .site-nav nav { display: flex; gap: 20px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b6b; }
   .site-nav nav a { color: inherit; text-decoration: none; }
-  .site-nav nav a:hover, .site-nav nav a[aria-current] { color: #1a1a1a; }
+  .site-nav nav a:hover { color: #161616; }
 
-  /* Controls */
-  .controls {
-    position: fixed; top: 16px; right: 16px; z-index: 100;
-    display: flex; gap: 10px; align-items: center;
-    background: #fff;
-    padding: 8px 12px; border-radius: 8px;
-    border: 1px solid #d6d6d2;
+  /* Tools — portfolio badge style (11px uppercase, hairline, 2px radius) */
+  .tools { width: 210mm; margin: 24px auto 0; display: flex; justify-content: flex-end; gap: 8px; line-height: 1.65; }
+  .tools button {
+    font-family: inherit; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #6b6b6b; background: #fff; border: 1px solid #d6d6d2; border-radius: 2px;
+    padding: 4px 10px; cursor: pointer;
   }
-  .controls button.print-btn {
-    border: 1px solid #1a1a1a; background: transparent; color: #1a1a1a;
-    padding: 7px 14px; border-radius: 6px;
-    font-size: 13px; cursor: pointer;
-    font-family: inherit; font-weight: 500;
-    transition: all 0.15s;
-  }
-  .controls button.print-btn:hover { background: #1a1a1a; color: #fff; }
+  .tools button:hover { color: #161616; }
+  .tools .seg { display: flex; }
+  .tools .seg button { border-radius: 0; }
+  .tools .seg button:first-child { border-radius: 2px 0 0 2px; }
+  .tools .seg button:last-child { border-radius: 0 2px 2px 0; margin-left: -1px; }
+  .tools .seg button.active { background: #161616; color: #fff; border-color: #161616; }
 
-  /* Language toggle (iOS-style switch) */
-  .lang-toggle {
-    display: flex; align-items: center; gap: 8px;
-    user-select: none;
-  }
-  .toggle-label {
-    font-size: 12px; font-weight: 600; color: #999;
-    transition: color 0.15s;
-    min-width: 18px; text-align: center;
-  }
-  .toggle-label.active { color: #1a1a1a; }
-  .switch {
-    position: relative; display: inline-block;
-    width: 42px; height: 24px;
-  }
-  .switch input { opacity: 0; width: 0; height: 0; }
-  .slider {
-    position: absolute; cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #1a1a1a;
-    border-radius: 24px;
-    transition: background-color 0.2s;
-  }
-  .slider::before {
-    content: "";
-    position: absolute;
-    height: 18px; width: 18px;
-    left: 3px; bottom: 3px;
-    background-color: white;
-    border-radius: 50%;
-    transition: transform 0.2s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  }
-  .switch input:checked + .slider::before {
-    transform: translateX(18px);
-  }
 
   /* Page */
   .resume {
     width: 210mm;
     height: 297mm;
-    margin: 24px auto;
+    margin: 12px auto 24px;
     background: #fff;
     padding: 13mm;
     border: 1px solid #d6d6d2;
@@ -295,16 +256,12 @@
     <a href="https://byjunyoung.github.io/resume/" aria-current="page">Resume</a>
   </nav>
 </header>
-<div class="controls no-print">
-  <div class="lang-toggle">
-    <span class="toggle-label active" id="label-ko">KR</span>
-    <label class="switch">
-      <input type="checkbox" id="lang-switch" onchange="setLang(this.checked ? 'en' : 'ko')">
-      <span class="slider"></span>
-    </label>
-    <span class="toggle-label" id="label-en">EN</span>
+<div class="tools no-print">
+  <div class="seg" role="group" aria-label="Language">
+    <button type="button" id="label-ko" class="active" onclick="setLang('ko')">KR</button>
+    <button type="button" id="label-en" onclick="setLang('en')">EN</button>
   </div>
-  <button class="print-btn" onclick="window.print()">PDF 저장</button>
+  <button type="button" class="pdf" onclick="window.print()">PDF 저장</button>
 </div>
 
 <!-- ============================ KOREAN ============================ -->
@@ -618,7 +575,7 @@
       en.classList.remove('hidden');
       labelEn.classList.add('active');
       labelKo.classList.remove('active');
-      langSwitch.checked = true;
+      if (langSwitch) langSwitch.checked = true;
       document.documentElement.lang = 'en';
       document.title = 'Junyoung Kim - Resume';
     } else {
@@ -626,7 +583,7 @@
       ko.classList.remove('hidden');
       labelKo.classList.add('active');
       labelEn.classList.remove('active');
-      langSwitch.checked = false;
+      if (langSwitch) langSwitch.checked = false;
       document.documentElement.lang = 'ko';
       document.title = '김준영 - 이력서';
     }
