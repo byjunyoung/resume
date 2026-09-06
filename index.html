@@ -13,30 +13,40 @@
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
       "Segoe UI", "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR",
       "Malgun Gothic", sans-serif;
-    background: #ececec;
+    background: #fff;
     color: #1a1a1a;
     -webkit-font-smoothing: antialiased;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
+  /* Site header — mirrors byjunyoung.github.io */
+  .site-nav {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    max-width: 1120px; margin: 0 auto; padding: 28px 24px 20px;
+    border-bottom: 1px solid #d6d6d2;
+  }
+  .site-nav .mark { font-size: 15px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #1a1a1a; text-decoration: none; }
+  .site-nav nav { display: flex; gap: 20px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6b6b; }
+  .site-nav nav a { color: inherit; text-decoration: none; }
+  .site-nav nav a:hover, .site-nav nav a[aria-current] { color: #1a1a1a; }
+
   /* Controls */
   .controls {
     position: fixed; top: 16px; right: 16px; z-index: 100;
     display: flex; gap: 10px; align-items: center;
-    background: rgba(255,255,255,0.92);
-    padding: 8px 12px; border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    backdrop-filter: blur(6px);
+    background: #fff;
+    padding: 8px 12px; border-radius: 8px;
+    border: 1px solid #d6d6d2;
   }
   .controls button.print-btn {
-    border: none; background: #0066ff; color: #fff;
-    padding: 8px 14px; border-radius: 6px;
+    border: 1px solid #1a1a1a; background: transparent; color: #1a1a1a;
+    padding: 7px 14px; border-radius: 6px;
     font-size: 13px; cursor: pointer;
     font-family: inherit; font-weight: 500;
     transition: all 0.15s;
   }
-  .controls button.print-btn:hover { background: #0052cc; }
+  .controls button.print-btn:hover { background: #1a1a1a; color: #fff; }
 
   /* Language toggle (iOS-style switch) */
   .lang-toggle {
@@ -82,7 +92,7 @@
     margin: 24px auto;
     background: #fff;
     padding: 13mm;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    border: 1px solid #d6d6d2;
     font-size: 9pt;
     line-height: 1.4;
     color: #1a1a1a;
@@ -232,6 +242,7 @@
     .resume {
       margin: 0;
       box-shadow: none;
+      border: none;
       padding: 13mm;
       width: 210mm;
       height: 297mm;
@@ -276,6 +287,14 @@
 </head>
 <body>
 
+<header class="site-nav no-print">
+  <a class="mark" href="https://byjunyoung.github.io/">Junyoung Kim</a>
+  <nav>
+    <a href="https://byjunyoung.github.io/">Works</a>
+    <a href="https://byjunyoung.github.io/activities/">Activities</a>
+    <a href="https://byjunyoung.github.io/resume/" aria-current="page">Resume</a>
+  </nav>
+</header>
 <div class="controls no-print">
   <div class="lang-toggle">
     <span class="toggle-label active" id="label-ko">KR</span>
