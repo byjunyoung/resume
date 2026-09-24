@@ -591,15 +591,19 @@
       document.documentElement.lang = 'ko';
       document.title = '김준영 - 이력서';
     }
-    try { localStorage.setItem('resume-lang', lang); } catch(e) {}
+    try { localStorage.setItem('site-lang', lang); localStorage.setItem('resume-lang', lang); } catch(e) {} // site-lang은 포트폴리오 사이트와 공유
   }
 
-  // Restore last selected language
+  // 언어 복원 — ?lang= → 고른 언어(site-lang, 포트폴리오와 공유; 옛 키 resume-lang도 인정) → 첫 방문이면 브라우저 언어
   try {
     const q = new URLSearchParams(location.search).get('lang');
-    const saved = localStorage.getItem('resume-lang');
-    const lang = (q === 'en' || q === 'ko') ? q : saved;
-    if (lang) setLang(lang);
+    const saved = localStorage.getItem('site-lang') || localStorage.getItem('resume-lang');
+    let lang = (q === 'en' || q === 'ko') ? q : saved;
+    if (lang !== 'en' && lang !== 'ko') {
+      const first = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+      lang = /^ko\b/i.test(first) ? 'ko' : 'en';
+    }
+    setLang(lang);
   } catch(e) {}
 </script>
 
